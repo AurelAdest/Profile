@@ -385,8 +385,8 @@
                         <option value="Rabu">Rabu</option>
                     </select>
                     <span id="infoJadwal"></span>
-                    <button type="button" id="toggleJadwal">Sembunyikan Tabel</button>
                 </div>
+                <button type="button" id="toggleJadwal">Sembunyikan Tabel</button>
             </div>
             <div class="table-container" id="tabelJadwal">
                 <table>
@@ -478,17 +478,16 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         //tombol tampil/sembunyikan jadwal
-        const tombolJadwal = document.getElementById("toggleJadwal");
-        const tabelJadwal = document.getElementById("tabelJadwal");
+        $("#toggleJadwal").click(function () {
 
-        tombolJadwal.addEventListener("click", function () {
-            if (tabelJadwal.style.display === "none") {
-                tabelJadwal.style.display = "block";
-                tombolJadwal.textContent = "Sembunyikan Tabel";
+            $("#tabelJadwal").toggle();
+
+            if ($("#tabelJadwal").is(":visible")) {
+                $("#toggleJadwal").text("Sembunyikan Tabel");
             } else {
-                tabelJadwal.style.display = "none";
-                tombolJadwal.textContent = "Tampilkan Tabel";
+                $("#toggleJadwal").text("Tampilkan Tabel");
             }
+
         });
 
         //validasi form
